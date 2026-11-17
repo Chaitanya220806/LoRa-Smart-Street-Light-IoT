@@ -1,0 +1,21 @@
+CREATE TABLE IF NOT EXISTS nodes (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    node_id TEXT UNIQUE NOT NULL,
+    name TEXT NOT NULL,
+    location TEXT,
+    status TEXT DEFAULT 'OFFLINE',
+    last_seen TEXT
+);
+CREATE TABLE IF NOT EXISTS commands (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    node_id TEXT NOT NULL,
+    command TEXT NOT NULL,
+    value INTEGER,
+    created_at TEXT NOT NULL
+);
+CREATE TABLE IF NOT EXISTS events (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    node_id TEXT,
+    event TEXT NOT NULL,
+    created_at TEXT NOT NULL
+);
